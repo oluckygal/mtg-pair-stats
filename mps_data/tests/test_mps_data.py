@@ -1,7 +1,7 @@
 import mps_data as mps
 import pytest
 def test_load_game_data():
-    game_data = mps.load_data.from_file('./tests/test_data/game_data_public.EOE.PremierDraft.csv')
+    game_data = mps.load_data.from_file('./tests/test_data/test_game_data.csv')
     assert(isinstance(game_data, mps.GameData))
 
 def test_load_no_file():
