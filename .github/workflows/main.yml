@@ -7,13 +7,13 @@ jobs:
     defaults:
       run:
         working-directory:
-          "./mts-data"
+          "./mps_data"
     steps:
     - uses: actions/checkout@v5
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version-file: "mts-data/pyproject.toml"
+        python-version-file: "mps_data/pyproject.toml"
     - name: Install uv
       uses: astral-sh/setup-uv@v6
       with:
