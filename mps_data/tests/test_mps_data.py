@@ -5,13 +5,19 @@ def test_load_game_data():
     assert(isinstance(game_data, mps.GameData))
 
 def test_load_no_file():
-    error_message = 'No file found at "./tests/test_data/no-file.csv"'
+    error_message = 'No file found at "./tests/test_data/no-file.csv".'
     with pytest.raises(mps.errors.FileNotFoundError) as exception_info:
         mps.load_data.from_file('./tests/test_data/no-file.csv')
     assert(str(exception_info.value) == error_message)
 
 def test_load_irrelevant_file():
-    error_message = 'File at "./tests/test_data/jabberwocky.txt" doesn\'t appear to contain 17lands game data'
+    error_message = 'File at "./tests/test_data/jabberwocky.txt" doesn\'t appear to contain 17lands game data.'
     with pytest.raises(mps.errors.NonCsvDataError) as exception_info:
         mps.load_data.from_file('./tests/test_data/jabberwocky.txt')
+    assert(str(exception_info.value) == error_message)
+
+def test_load_incorrect_data():
+    error_message = 'File at "./tests/test_data/incorrect_data.csv" doesn\'t appear to contain 17lands game data. Missing columns: [\'event_type\', \'expansion\', \'won\']'
+    with pytest.raises(mps.errors.GameDataMissingError) as exception_info:
+        mps.load_data.from_file('./tests/test_data/incorrect_data.csv')
     assert(str(exception_info.value) == error_message)
