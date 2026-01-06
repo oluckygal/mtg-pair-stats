@@ -7,16 +7,16 @@ import os.path
 import pandas as pd
 
 
-def _does_file_exist(filepath: str):
+def _does_file_exist(filepath: str) -> bool:
     return os.path.isfile(filepath)
 
-def _load_csv_game_data(filepath):
+def _load_csv_game_data(filepath: str) -> pd.DataFrame:
     try:
         return pd.read_csv(filepath)
     except pd.errors.ParserError:
         raise NonCsvDataError(filepath)
     
-def from_file(filepath: str):
+def from_file(filepath: str) -> GameData:
     if not _does_file_exist(filepath):
         raise FileNotFoundError(filepath)
     raw_game_data = _load_csv_game_data(filepath)
