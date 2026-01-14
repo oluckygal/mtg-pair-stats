@@ -1,9 +1,14 @@
 import pandas as pd
 from .errors import MandatoryColumnsMissingError
 class GameData:
+
     _MANDATORY_COLUMNS_SET = set(["expansion","event_type","won"])
+    _BASE_CARD_IN_HAND_PREFIXES = set(["opening_hand_", "drawn_", "tutored_"])
     _IN_DECK_PREFIX = "deck_"
+    _BASE_CARD_DATA_PREFIXES = _BASE_CARD_IN_HAND_PREFIXES.union(set([_IN_DECK_PREFIX, "sideboard_"]))
     _EVER_IN_HAND_PREFIX = "ever_in_hand_"
+    _ALL_CARD_DATA_PREFIXES = _BASE_CARD_DATA_PREFIXES.union(set([_EVER_IN_HAND_PREFIX]))
+
     def __init__(self, data: pd.DataFrame):
         self._validate_data(data)
         self._data = data.copy(deep=True)
@@ -22,6 +27,24 @@ class GameData:
         except AttributeError:
             self._card_names = self._generate_card_names()
             return self._card_names.copy()
+        
+
+    def _add_ever_in_hand(self) -> "GameData":
+        data = self._data.copy()
+        for card_name in self.get_card_names():
+            new_in_hand_column_label = self._EVER_IN_HAND_PREFIX + card_name
+            data[new_in_hand_column_label] = False
+            for base_in_hand_prefix in self._BASE_CARD_IN_HAND_PREFIXES:
+                base_in_hand_column = data[base_in_hand_prefix + card_name]
+                data[new_in_hand_column_label] = data[new_in_hand_column_label] | (base_in_hand_column > 0)
+        return GameData(data)
+        
+        
+    def with_ever_in_hand(self) -> "GameData":
+        if len(self._data.filter(regex="^" + self._EVER_IN_HAND_PREFIX).columns) > 0:
+            return self
+        return self._add_ever_in_hand()
+        
     def as_dataframe(self) -> pd.DataFrame:
         return self._data.copy(deep=True)
     
