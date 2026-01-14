@@ -2,6 +2,7 @@ import pandas as pd
 from .errors import MandatoryColumnsMissingError
 class GameData:
     _MANDATORY_COLUMNS_SET = set(["expansion","event_type","won"])
+    _IN_DECK_PREFIX = "deck_"
     _EVER_IN_HAND_PREFIX = "ever_in_hand_"
     def __init__(self, data: pd.DataFrame):
         self._validate_data(data)
