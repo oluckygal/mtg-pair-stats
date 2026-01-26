@@ -40,8 +40,9 @@ def test_with_ever_in_hand():
     #shouldn't throw exception
     game_data.with_ever_in_hand()
 
-    
-# def test_get_improvement_when_drawn_game_count():
-#     game_data = mps.load_data.from_file('./tests/test_data/test_game_data.csv')
-#     iwd_data = mps.data_processing.get_improvement_when_drawn(game_data)
-#     assert(iwd_data.get_game_count("Reach Through Mists") == 8)
+def test_filter_by_in_deck():
+    game_data = mps.load_data.from_file('./tests/test_data/test_game_data.csv')
+    assert(game_data.filter_by_in_deck("Reach Through Mists").as_dataframe().shape[0] == 12)
+    assert(game_data.filter_by_in_deck("Reach Through Mists", "Inspiration").as_dataframe().shape[0] == 11)
+    assert(game_data.filter_by_in_deck("Reach Through Mists", "Jace's Ingenuity", "Inspiration").as_dataframe().shape[0] == 10)
+    assert(game_data.filter_by_in_deck("Reach Through Mists", "Inspiration", "Jace's Ingenuity", "Opportunity").as_dataframe().shape[0] == 9)
