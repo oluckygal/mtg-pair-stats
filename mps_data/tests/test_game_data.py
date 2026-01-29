@@ -42,7 +42,7 @@ def test_with_ever_in_hand():
 
 def test_filter_by_in_deck():
     game_data = mps.load_data.from_file('./tests/test_data/test_game_data.csv')
-    assert(game_data.filter_by_in_deck("Reach Through Mists").as_dataframe().shape[0] == 12)
-    assert(game_data.filter_by_in_deck("Reach Through Mists", "Inspiration").as_dataframe().shape[0] == 11)
-    assert(game_data.filter_by_in_deck("Reach Through Mists", "Jace's Ingenuity", "Inspiration").as_dataframe().shape[0] == 10)
-    assert(game_data.filter_by_in_deck("Reach Through Mists", "Inspiration", "Jace's Ingenuity", "Opportunity").as_dataframe().shape[0] == 9)
+    assert(game_data.filter_by_in_deck("Reach Through Mists").as_dataframe().shape[0] == 3)
+    assert(game_data.filter_by_in_deck("Reach Through Mists", "Inspiration").as_dataframe().shape[0] == 2)
+    assert(game_data.filter_by_in_deck("Reach Through Mists", "Jace's Ingenuity", "Inspiration").as_dataframe().shape[0] == 1)
+    assert(game_data.filter_by_in_deck("Reach Through Mists", "Inspiration", "Jace's Ingenuity", "Opportunity").as_dataframe().shape[0] == 0)

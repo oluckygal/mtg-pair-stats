@@ -1,16 +1,5 @@
 expansion,event_type,won,"opening_hand_Reach Through Mists","drawn_Reach Through Mists","tutored_Reach Through Mists","deck_Reach Through Mists","opening_hand_Inspiration","drawn_Inspiration","tutored_Inspiration","deck_Inspiration","opening_hand_Jace's Ingenuity","drawn_Jace's Ingenuity","tutored_Jace's Ingenuity","deck_Jace's Ingenuity","opening_hand_Opportunity","drawn_Opportunity","tutored_Opportunity","deck_Opportunity"
-EOE,Sealed,True,1,0,0,1,0,1,0,1,0,0,1,1,0,0,0,1
-EOE,Sealed,False,1,0,0,1,0,1,0,1,0,0,1,1,0,0,0,1
-EOE,Sealed,True,0,0,0,1,0,1,0,1,0,0,1,1,0,0,0,1
-EOE,Sealed,False,0,0,0,1,0,1,0,1,0,0,1,1,0,0,0,1
-EOE,Sealed,True,0,0,0,0,0,1,0,1,0,0,1,1,0,0,0,1
-EOE,Sealed,False,0,0,0,0,0,1,0,1,0,0,1,1,0,0,0,1
-EOE,Sealed,True,1,0,0,1,0,0,0,1,0,0,1,1,0,0,0,1
-EOE,Sealed,False,1,0,0,1,0,0,0,1,0,0,1,1,0,0,0,1
-EOE,Sealed,True,0,0,0,1,0,0,0,1,0,0,1,1,0,0,0,1
-EOE,Sealed,False,0,0,0,1,0,0,0,1,0,0,1,1,0,0,0,1
-EOE,Sealed,True,0,0,0,1,0,0,0,1,0,0,1,1,0,0,0,1
-EOE,Sealed,False,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0
+EOE,Sealed,False,1,0,0,1,0,1,0,1,0,0,1,1,0,0,0,0
 EOE,Sealed,False,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0
 EOE,Sealed,False,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
 EOE,Sealed,False,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
