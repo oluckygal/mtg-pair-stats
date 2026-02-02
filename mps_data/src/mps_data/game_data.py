@@ -63,3 +63,9 @@ class GameData:
         for card in cards:
             filtered_data = filtered_data[filtered_data[self.IN_DECK_PREFIX + card] > 0]
         return GameData(filtered_data)
+    
+    def get_format(self):
+        return self._data["event_type"].loc[0]
+    
+    def get_set(self):
+        return self._data["expansion"].loc[0]
